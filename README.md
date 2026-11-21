@@ -1,56 +1,73 @@
 # Xiaomi & HyperOS Debloater & Backup Tool
 
-A safe, interactive shell tool to debloat Xiaomi / Redmi / POCO devices running MIUI or HyperOS via ADB without bricking or breaking Google Play Store.
-
-## Features
-
-- **Xiaomi Ads & Telemetry Removal**: Removes `msa`, `analytics`, `daemon`, `joyose`, and background Facebook trackers.
-- **Sponsor & Partner Bloatware Removal**: Removes pre-installed apps like TikTok, AliExpress, Amazon, Netflix, and Glance Wallpaper Carousel.
-- **MIUI Apps Removal**: Removes or disables user-facing system apps (Mi Browser, GetApps, Mi Video, Cleaner, Mi Cloud, etc.).
-- **Safe Google Apps Removal**: Removes YouTube, Gmail, Maps, Google App, Chrome, and Google Meet while preserving core essentials (Phone, SMS, Gboard keyboard, and Play Store).
-- **Security App Neutralization**: Silences notifications and revokes location access for `com.miui.securitycenter` without uninstalling it (preventing bootloops).
-- **1-Click Photo & Video Backup**: Pulls `DCIM`, `Pictures`, and WhatsApp images to your computer with original timestamps preserved.
-- **Package Restore**: Quickly reinstall any uninstalled package with a single command.
+A safe, interactive script to debloat Xiaomi, Redmi, and POCO devices running MIUI or HyperOS via ADB without bootloops or breaking Google Play Store.
 
 ---
 
-## Prerequisites
+## Supported Operating Systems
 
-1. **Mac / Linux / Windows (WSL)** with `bash`.
-2. **Android Platform Tools (ADB)**:
-   ```bash
-   brew install --cask android-platform-tools
-   ```
-3. **Enable Developer Options on Device**:
-   - Open **Settings** > **About phone**.
-   - Tap **OS version** (or MIUI version) 7 times.
-   - Go to **Settings** > **Additional settings** > **Developer options**.
-   - Turn on **USB debugging**.
-   - Plug phone into Mac/PC via USB and tap **Always allow from this computer**.
+- **macOS**
+- **Windows** (via Git Bash, WSL, or MSYS2)
+- **Linux**
 
 ---
 
-## Quick Start
+## 1. Prerequisites & ADB Setup
 
-1. Clone or download this repository:
-   ```bash
-   git clone git@github.com:jstani7/xiaomi-hyperos-debloater.git
-   cd xiaomi-hyperos-debloater
-   ```
+### macOS
+Install Android Platform Tools via Homebrew:
+```bash
+brew install --cask android-platform-tools
+```
 
-2. Make the script executable:
-   ```bash
-   chmod +x debloat.sh
-   ```
+### Windows
+Install Android Platform Tools using Winget:
+```powershell
+winget install Google.PlatformTools
+```
+*(Or download the official Platform Tools ZIP from Google and add it to your PATH).*
 
-3. Run the interactive menu:
-   ```bash
-   ./debloat.sh
-   ```
+You also need **Git Bash** (installed with Git for Windows) or **WSL** to run the bash script.
+
+### Linux
+```bash
+sudo apt install adb       # Debian / Ubuntu
+sudo dnf install android-tools # Fedora / RHEL
+```
 
 ---
 
-## Menu Options
+## 2. Phone Setup (Developer Options)
+
+1. Open **Settings** > **About phone**.
+2. Tap **OS version** (or **MIUI version**) 7 times consecutively to unlock Developer options.
+3. Navigate to **Settings** > **Additional settings** > **Developer options**.
+4. Enable **USB debugging**.
+5. Connect your phone to your computer via USB cable.
+6. When prompted on your phone screen, check **Always allow from this computer** and tap **Allow** / **OK**.
+
+---
+
+## 3. How to Run
+
+### On macOS / Linux:
+```bash
+git clone git@github.com:jstani7/xiaomi-hyperos-debloater.git
+cd xiaomi-hyperos-debloater
+chmod +x debloat.sh
+./debloat.sh
+```
+
+### On Windows (using Git Bash):
+1. Right-click inside your project folder and select **Open Git Bash here**.
+2. Run:
+```bash
+bash debloat.sh
+```
+
+---
+
+## 4. Menu Options
 
 ```text
 ==========================================
@@ -63,22 +80,22 @@ A safe, interactive shell tool to debloat Xiaomi / Redmi / POCO devices running 
  5) Remove Optional Google Apps & Chrome
  6) Silence Security App & Telemetry
  7) Restore a package
- 8) Backup Photos & Videos to Mac
+ 8) Backup Photos & Videos to PC/Mac
  0) Exit
 ==========================================
 ```
 
 ---
 
-## Network-Wide Ad Blocking (Private DNS)
+## 5. Network-Wide Ad & Tracker Blocking (Private DNS)
 
-To block in-app banner ads and web ads device-wide:
+To eliminate in-app and browser banner ads across your phone:
 1. Open **Settings** > **Connection & sharing** > **Private DNS**.
 2. Select **Private DNS provider hostname**.
-3. Enter: `dns.adguard-dns.com` and tap **Save**.
+3. Type: `dns.adguard-dns.com` and tap **Save**.
 
 ---
 
 ## License
 
-MIT License. Free to use and modify.
+This project is licensed under the [MIT License](LICENSE).
