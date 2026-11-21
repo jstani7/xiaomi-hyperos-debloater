@@ -34,8 +34,8 @@ A safe, interactive shell tool to debloat Xiaomi / Redmi / POCO devices running 
 
 1. Clone or download this repository:
    ```bash
-   git clone git@github.com:jstani7/xiaomi-debloater.git
-   cd xiaomi-debloater
+   git clone git@github.com:jstani7/xiaomi-hyperos-debloater.git
+   cd xiaomi-hyperos-debloater
    ```
 
 2. Make the script executable:
